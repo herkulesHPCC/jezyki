@@ -11,9 +11,14 @@ void Powieksz(int *a);
 void wypisztablice(int *t, int r);
 void zmientablice(int *t, int r);
 int* Utworz(int rozmiar);
+int* OdTylu(int *t1, int r);
 int main()
 {
 	int liczba1 = 1;
+	
+
+	
+
 	int *pLiczba1 = &liczba1;
 	cout << liczba1 << " " << &liczba1 << endl;
 	cout << pLiczba1 << " " << *pLiczba1 << endl;
@@ -33,8 +38,27 @@ int main()
 	zmientablice(tab1, 3);
 	wypisztablice(tab1, 3);
 
-	int *tab2 = Utworz(5);
-	wypisztablice(tab2, 5);
+	/*int *tab2 = Utworz(5);
+	wypisztablice(tab2, 5);*/
+
+	int roz2 = 0;
+	cout << "Rozmiar tablicy";
+	cin >> roz2;
+	int *tab2 = Utworz(roz2);
+	/*wypisztablice(tab2, roz2);
+	
+
+	cout << tab2 << " " << *(tab2 + 1) << " " << tab2[1];
+	delete[] tab2;*/
+
+	//char napis[] = "Ala ma kota";
+	//cout << napis << " " << *(napis + 1) << " " << napis[1];
+	//delete[] tab2;
+
+	int *tab3 = OdTylu(tab2, roz2);
+	wypisztablice(tab3, roz2);
+	delete[] tab2;
+	delete[] tab3;
 	system("PAUSE");
     return 0;
 }
@@ -74,4 +98,14 @@ int* Utworz(int rozmiar)
 	int *t = new int[rozmiar];
 	zmientablice(t, rozmiar);
 	return t;
+}
+
+int* OdTylu(int *t1, int r)
+{
+	int *t2 = new int[r];
+	for (int i = 0; i < r; i++)
+	{
+		t2[i] = t1[r - 1 - i];
+	}
+	return t2;
 }
