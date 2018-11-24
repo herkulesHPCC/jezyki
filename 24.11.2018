@@ -13,6 +13,7 @@ void zmientablice(int *t, int r);
 int* Utworz(int rozmiar);
 int* OdTylu(int *t1, int r);
 void Mix(int&, int&);
+void IloscLiter(char *t, int r, char znak, int &ilosc);
 
 int main()
 {
@@ -66,6 +67,12 @@ int main()
 	cout << a << " " << b << endl;
 	Mix(a, b);
 	cout << a << " " << b << endl;
+
+	char napis[] = "Ala ma kota";
+	int iloscznakow = 0;
+	IloscLiter(napis, sizeof(napis) / sizeof(char), 'a', iloscznakow);
+	cout << "Ilosc wystapien " << iloscznakow;
+
 	system("PAUSE");
     return 0;
 }
@@ -123,4 +130,16 @@ void Mix(int &x, int &y)
 	int tmp = x;
 	x = y;
 	y = tmp;
+}
+
+void IloscLiter(char *t, int r, char znak, int &ilosc)
+{
+	for (int i = 0; i < r; i++)
+	{
+		if (t[i] == znak)
+		{
+			ilosc++;
+		}
+	}
+
 }
