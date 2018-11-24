@@ -12,6 +12,8 @@ void wypisztablice(int *t, int r);
 void zmientablice(int *t, int r);
 int* Utworz(int rozmiar);
 int* OdTylu(int *t1, int r);
+void Mix(int&, int&);
+
 int main()
 {
 	int liczba1 = 1;
@@ -59,6 +61,11 @@ int main()
 	wypisztablice(tab3, roz2);
 	delete[] tab2;
 	delete[] tab3;
+
+	int a = 1, b = 2;
+	cout << a << " " << b << endl;
+	Mix(a, b);
+	cout << a << " " << b << endl;
 	system("PAUSE");
     return 0;
 }
@@ -108,4 +115,12 @@ int* OdTylu(int *t1, int r)
 		t2[i] = t1[r - 1 - i];
 	}
 	return t2;
+}
+
+
+void Mix(int &x, int &y)
+{
+	int tmp = x;
+	x = y;
+	y = tmp;
 }
