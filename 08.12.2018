@@ -1,0 +1,175 @@
+// Nauka.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <string>
+
+using namespace std; 
+
+int main()
+{
+	//int tab1[5] = { 1, 2, 3, 4, 5 };
+	//float tab2[5] = { 0.4, 9.99, -8.898, 3.12, 7.53 };
+	//
+	////tworzenie obiektu
+	//fstream plik;
+	//
+	////czy plik istnieje
+	//if (!plik)
+	//{
+	//	cout << "Błąd pliku";
+	//	return 1;
+	//}
+
+	////otworz plik
+	//plik.open("plik.txt", ios::in | ios::out | ios::app);
+
+	////petla wrzucająca do pliku
+	//for (int i = 0; i < 5; i++)
+	//{
+	//	plik.width(4);
+	//	plik << tab1[i];
+	//	plik.width(8);
+	//	plik << tab2[i];
+	//	plik << endl;
+	//}
+
+	////zamknij plik
+	//plik.close();
+
+
+	//int *tab3 = new int[5];
+	//float *tab4 = new float[5];
+
+	////utworz obiekt
+	//fstream plik2;
+	//
+	////otworz drugi plik
+	//plik2.open("plik.txt");
+	//
+	////czy istnieje
+	//if (!plik2)
+	//{
+	//	cout << "błąd odczytu";
+	//	return 1;
+	//}
+	////wpisuje do pliku
+	//for (int i = 0; i < 5; i++)
+	//{
+	//	plik2 >> tab3[i];
+	//	plik2 >> tab4[i];
+	//}
+
+	//plik2.close();
+
+	//int wynik = 0;
+	//float wynik2 = 0;
+
+	////dodawanie 
+	//for (int i = 0; i < 5; i++)
+	//{
+	//	wynik = wynik + tab3[i];
+	//}
+
+	////dodawanie 
+	//for (int i = 0; i < 5; i++)
+	//{
+	//	wynik2 = wynik2 + tab4[i];
+	//}
+
+	//cout << "Wynik pierwszej: " << wynik <<endl;
+
+	//cout << "Pierwsza tablica " << endl;
+	//for (int i = 0; i < 5; i++)
+	//{
+	//	cout << tab3[i] << endl;
+	//}
+	//cout << "Wynik drugiej: " << wynik2 << endl;
+
+	//cout << "Druga tablica " << endl ;
+	//for (int i = 0; i < 5; i++)
+	//{
+	//	cout << tab4[i] << endl;;
+	//}
+
+	//delete[] tab3;
+	//delete[] tab4;
+
+	char nazwa[32];
+	cout << "Podaj nazwe pliku: ";
+	cin.getline(nazwa, 31);
+
+
+
+	fstream plik;
+	plik.open("plik.txt");
+	if (!plik)
+	{
+		cout << "Błąd pliku";
+		return 1;
+	}
+
+	char zdanie[256];
+	cin.getline(zdanie, 256);
+	plik << zdanie << endl;
+	plik.close(); 
+
+	fstream plik2;
+	plik2.open(nazwa);
+	if (!plik2)
+	{
+		cout << "Blad";
+		return 1;
+	}
+
+	cout << "Dotychczas napisano: " << endl;
+	while (!plik2.eof())
+	{
+		plik2.getline(zdanie, 256);
+		cout << zdanie << endl;
+	}
+
+	plik2.close();
+
+
+
+
+	/*int tmp1;
+	float tmp2;
+	int licznik = 0;
+	while (cin >> tmp1 >> tmp2) {
+		plik << tmp1 << " " << tmp2 << endl;
+		licznik++;
+	}
+	plik.close();
+	
+	fstream plik2;
+	plik2.open("plik.txt");
+	if (!plik2)
+	{
+		cout << "Błąd pliku";
+		return 1;
+	}
+
+	int *tab1 = new int[licznik];
+	float *tab2 = new float[licznik];
+	for (int i = 0; i < licznik; i++)
+	{
+		plik2 >> tab1[i];
+		plik2 >> tab2[i];
+
+		cout << tab1[i] << " " << tab2[i] << endl;
+	}
+	
+
+	delete[] tab1;
+	delete[] tab2;*/
+
+	system("PAUSE");
+    return 0;
+}
+
+
